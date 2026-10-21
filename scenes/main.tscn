@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://c61o7djmf0hd0"]
+
+[ext_resource type="Script" uid="uid://y74imfakuyyv" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="Script" uid="uid://ietdkia8iyhi" path="res://scripts/terrain/terrain_world.gd" id="2_terrain"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_player"]
+[ext_resource type="Script" path="res://scripts/ui/prototype_hud.gd" id="4_hud"]
+
+[node name="Main" type="Node2D" unique_id=1749141221]
+script = ExtResource("1_main")
+
+[node name="Background" type="ColorRect" parent="." unique_id=218914031]
+show_behind_parent = true
+offset_right = 6144.0
+offset_bottom = 2304.0
+mouse_filter = 2
+color = Color(0.31, 0.66, 0.86, 1)
+
+[node name="TerrainWorld" type="Node2D" parent="." unique_id=1439696289]
+script = ExtResource("2_terrain")
+
+[node name="Player" parent="." unique_id=1041115572 instance=ExtResource("3_player")]
+
+[node name="PrototypeHUD" type="CanvasLayer" parent="."]
+script = ExtResource("4_hud")
+
+[node name="Panel" type="ColorRect" parent="PrototypeHUD"]
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 665.0
+offset_bottom = 108.0
+color = Color(0.035, 0.047, 0.067, 0.82)
+mouse_filter = 2
+
+[node name="Info" type="Label" parent="PrototypeHUD/Panel"]
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 640.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.93, 0.95, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 15
+text = "Loading prototype..."
